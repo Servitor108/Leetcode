@@ -1,0 +1,38 @@
+Summary
+We need to choose elements of a circular array such that they are not alternate and there sum is maximum
+
+Solution
+Approach 1: Brute Force
+Algorithm
+
+In this approach, we find out every possible subset  formed by the elements of the given array satisfying non-alternate behaviour and calculate their sum. But this one will be a very naive approach, since it requires us to find out every possible way which will take really long time and the implementation is complex. Thus, this approach is not acceptable at all. Hence, we move on directly to the correct approach.
+
+Complexity Analysis
+
+Time complexity : O(2^n). Total possible subsets is 2^n.
+Space complexity : O(n). Since local recursion variable would be stored.
+
+
+Approach 2: Dynamic programming
+Algorithm
+
+We find that the above problem can be broken down as
+  fun(t)=max(fun(t+2)+val(t),fun(t+1))
+where fun(t)  gives the maximum sum possible from index t to last index
+  
+  the above equation satisfies optimal substructure and repeating subsequence property 
+   for ex - fun(t+1)=max(fun(t+3)+val(t+1),fun(t+2))
+   clearly fun(t+2) gets repeated in the above 2 equation
+
+   But the second problem  is array is circular
+      This can easily by breaking the problem as two problem
+         0--------n-1 index
+         1---------n index
+      and taking the maximum as solution
+
+ Complexity Analysis
+
+Time complexity : O(n). Since only one iteration took place.
+Space complexity : O(1). Only two variables are needed to store values.
+
+
